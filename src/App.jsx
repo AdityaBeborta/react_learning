@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import { LazyIndex } from "./Lazy_Suspense/LazyIndex";
-
+import {ErrorBoundary} from "./ErrorBoundaries/ErrorBoundary"
+import { ThrowError } from "./ErrorBoundaries/ThrowError";
 
 
 
@@ -10,7 +11,10 @@ function App() {
 
   return (
     <>
-      <LazyIndex/>
+      <ErrorBoundary fallback={<p>Something went wrong</p>}>
+        {/* <LazyIndex/> */}
+        <ThrowError/>
+      </ErrorBoundary>
     </>
   );
 }
